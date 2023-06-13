@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo, ObjectId
 from decouple import config
+from flask_cors import CORS
 
 
 # Obtener los valores de las variables de entorno
@@ -13,8 +14,11 @@ print(mongo_host)
 
 app = Flask(__name__)
 app.config['MONGO_URI'] = f"mongodb://{mongo_host}:{mongo_port}/donto"
+#app.config['MONGO_URI'] = f"mongodb://localhost/donto"
 
 mongo = PyMongo(app)
+
+CORS(app)
 db = mongo.db.users
 @app.route('/login', methods=['POST'])
 def login():
