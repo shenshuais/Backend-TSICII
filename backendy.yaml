@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: docker.io/shuaishen/backend:06
+        image: docker.io/shuaishen/backend:07
         ports:
         - containerPort: 5000
         env:
